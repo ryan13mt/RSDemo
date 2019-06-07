@@ -1,0 +1,21 @@
+databaseChangeLog:
+- changeSet:
+    id: init-data
+    author: ryan.cassar
+    preConditions:
+      onFail: continue
+
+    changes:
+    - loadUpdateData:
+        encoding: UTF-8
+        file: db/init/initial-data-user.csv
+        primaryKey: id
+        separator: "|"
+        tableName: user
+
+    - loadUpdateData:
+        encoding: UTF-8
+        file: db/init/initial-data-product.csv
+        primaryKey: id
+        separator: "|"
+        tableName: product
