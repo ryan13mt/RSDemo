@@ -16,15 +16,13 @@ public class BasketTransformer {
 
     public BasketDto transformToDto(final Basket basket) {
         log.debug("Transforming Basket to BasketDto");
-        return new BasketDto(basket.getId(),
-                             basket.getProductId(),
+        return new BasketDto(basket.getProductId(),
                              basket.getUserId());
     }
 
     public Basket transformFromDto(final BasketDto basket) {
         log.debug("Transforming BasketDto to Basket");
-        return new Basket(basket.getId(),
-                          basket.getProductId(),
+        return new Basket(basket.getProductId(),
                           basket.getUserId());
     }
 

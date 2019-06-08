@@ -1,13 +1,11 @@
 package com.rs.demo.service.domain.models;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
@@ -16,9 +14,11 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class Basket {
 
     @Id
+    @GeneratedValue
     @Setter(AccessLevel.NONE)
     private UUID id;
 
@@ -27,5 +27,11 @@ public class Basket {
 
     @NotNull
     private UUID userId;
+
+    public Basket(@NotNull final UUID productId,
+                  @NotNull final UUID userId) {
+        this.productId = productId;
+        this.userId = userId;
+    }
 
 }

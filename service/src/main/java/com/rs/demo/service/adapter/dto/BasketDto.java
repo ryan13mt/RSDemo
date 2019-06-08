@@ -13,10 +13,6 @@ import java.util.UUID;
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class BasketDto {
 
-    @Id
-    @Setter(AccessLevel.NONE)
-    private UUID id;
-
     @NotNull
     private UUID productId;
 
