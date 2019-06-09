@@ -8,7 +8,6 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class BasketDto {

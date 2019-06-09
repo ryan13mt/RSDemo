@@ -12,7 +12,6 @@ import java.util.UUID;
 
 @Entity
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Basket {

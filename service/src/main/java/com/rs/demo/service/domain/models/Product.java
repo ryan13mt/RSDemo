@@ -14,7 +14,6 @@ import java.util.UUID;
 
 @Entity
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
@@ -26,7 +25,7 @@ public class Product {
     @NotNull
     @NotEmpty
     @Length(max = 30)
-    @Pattern(regexp = "[a-zA-Z]")
+    @Pattern(regexp = "^[-a-zA-Z]+")
     private String name;
 
     @NotNull

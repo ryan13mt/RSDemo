@@ -30,7 +30,7 @@ public class BasketService {
     private void verifyListsHaveNoEntriesInCommon(final List<Basket> newBasketProducts, final List<Basket> basketList) {
         newBasketProducts.forEach(newEntry -> basketList.forEach(existingEntry -> {
             if (existingEntry.getProductId().equals(newEntry.getProductId())) {
-                throw new IllegalStateException("Item has already been purchased!");
+                throw new IllegalStateException("Item " + newEntry.getProductId() + " has already been purchased!");
             }
         }));
     }

@@ -11,10 +11,7 @@ import javax.validation.constraints.Pattern;
 import java.util.UUID;
 
 @Getter
-@Setter
-@Builder
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
+@AllArgsConstructor
 public class ProductDto {
 
     @Id
