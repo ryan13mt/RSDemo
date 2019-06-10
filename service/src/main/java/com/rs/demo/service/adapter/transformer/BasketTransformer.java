@@ -1,9 +1,7 @@
 package com.rs.demo.service.adapter.transformer;
 
 import com.rs.demo.service.adapter.dto.BasketDto;
-import com.rs.demo.service.adapter.dto.ProductDto;
 import com.rs.demo.service.domain.models.Basket;
-import com.rs.demo.service.domain.models.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -17,13 +15,13 @@ public class BasketTransformer {
     public BasketDto transformToDto(final Basket basket) {
         log.debug("Transforming Basket to BasketDto");
         return new BasketDto(basket.getProductId(),
-                             basket.getUserId());
+                basket.getUserId());
     }
 
     public Basket transformFromDto(final BasketDto basket) {
         log.debug("Transforming BasketDto to Basket");
         return new Basket(basket.getProductId(),
-                          basket.getUserId());
+                basket.getUserId());
     }
 
     public List<BasketDto> transformListToDtoList(List<Basket> basketList) {

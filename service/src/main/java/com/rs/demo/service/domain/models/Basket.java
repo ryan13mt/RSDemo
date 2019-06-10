@@ -1,10 +1,8 @@
 package com.rs.demo.service.domain.models;
 
 import lombok.*;
-import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;

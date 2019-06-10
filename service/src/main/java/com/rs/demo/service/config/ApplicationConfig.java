@@ -16,12 +16,12 @@ public class ApplicationConfig {
     @Bean
     public Docket api(final ServerProperties serverProperties) {
         return new Docket(DocumentationType.SWAGGER_2)
-            .select()
-            .apis(RequestHandlerSelectors.any())
-            //the following lines will remove any configuration endpoint from the swagger file
-            .apis(Predicates.not(RequestHandlerSelectors.basePackage("org.springframework.boot")))
-            .build()
-            .useDefaultResponseMessages(false);
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                //the following lines will remove any configuration endpoint from the swagger file
+                .apis(Predicates.not(RequestHandlerSelectors.basePackage("org.springframework.boot")))
+                .build()
+                .useDefaultResponseMessages(false);
     }
 
 }

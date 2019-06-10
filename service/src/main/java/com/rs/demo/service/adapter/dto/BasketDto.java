@@ -2,7 +2,6 @@ package com.rs.demo.service.adapter.dto;
 
 import lombok.*;
 
-import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 

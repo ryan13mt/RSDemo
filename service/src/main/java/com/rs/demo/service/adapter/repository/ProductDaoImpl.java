@@ -11,7 +11,6 @@ import org.springframework.validation.annotation.Validated;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.Objects;
 
 @Slf4j
 @Component

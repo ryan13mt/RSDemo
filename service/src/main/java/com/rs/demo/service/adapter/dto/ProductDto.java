@@ -1,7 +1,10 @@
 package com.rs.demo.service.adapter.dto;
 
 import com.rs.demo.service.domain.models.ProductType;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Id;

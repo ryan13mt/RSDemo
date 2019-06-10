@@ -15,9 +15,9 @@ public class ProductTransformer {
     public ProductDto transformToDto(final Product product) {
         log.debug("Transforming Product to ProductDto");
         return new ProductDto(product.getId(),
-                              product.getName(),
-                              product.getType(),
-                              product.getUserId());
+                product.getName(),
+                product.getType(),
+                product.getUserId());
     }
 
     public List<ProductDto> transformListToDtoList(List<Product> productList) {

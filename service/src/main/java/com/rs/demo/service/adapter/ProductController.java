@@ -75,8 +75,3 @@ public class ProductController {
     }
 
 }
-
-
-//Add Tests
-//Maybe add unique constraint on basket table on productId and userID
-
