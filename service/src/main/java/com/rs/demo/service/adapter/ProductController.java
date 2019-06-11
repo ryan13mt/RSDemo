@@ -19,6 +19,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -65,7 +66,7 @@ public class ProductController {
             @ApiResponse(code = 422, message = "The request is rejected because the server was unable to process the given request due to semantic validations. Do not repeat the request without modifications.")
     })
     @PutMapping
-    public List<BasketDto> addToBasket(@RequestBody @NotNull @Valid final List<BasketDto> basketDto) {
+    public List<BasketDto> addToBasket(@RequestBody @NotEmpty @NotNull @Valid final List<BasketDto> basketDto) {
         log.trace("Received request to add basket with these details: {}", basketDto);
         if (userService.get(basketDto.get(0).getUserId()) == null) {
             throw new IllegalStateException("Trying to buy item/s for user that does not exist!");
