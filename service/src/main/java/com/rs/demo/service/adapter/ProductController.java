@@ -5,6 +5,7 @@ import com.rs.demo.service.adapter.dto.ProductDto;
 import com.rs.demo.service.adapter.transformer.BasketTransformer;
 import com.rs.demo.service.adapter.transformer.ProductTransformer;
 import com.rs.demo.service.domain.models.ProductFilter;
+import com.rs.demo.service.domain.models.ProductType;
 import com.rs.demo.service.domain.services.BasketService;
 import com.rs.demo.service.domain.services.ProductService;
 import com.rs.demo.service.domain.services.UserService;
@@ -14,7 +15,6 @@ import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.lang.Nullable;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,9 +46,14 @@ public class ProductController {
             @ApiResponse(code = 422, message = "The request is rejected because the server was unable to process the given request due to semantic validations. Do not repeat the request without modifications.")
     })
     @GetMapping
-    public List<ProductDto> getProducts(@Nullable @RequestBody @Valid final ProductFilter filter) {
-        log.trace("Received request to get product list filtered by {}", filter);
-        return productTransformer.transformListToDtoList(productService.find(filter));
+    public List<ProductDto> getProducts(@RequestParam(required = false, value = "name") final String name,
+                                        @RequestParam(required = false, value = "type") final ProductType type) {
+        if(type != null) {
+            final ProductFilter productFilter = new ProductFilter(name, type);
+            log.trace("Received request to get product list filtered by {}", productFilter);
+            return productTransformer.transformListToDtoList(productService.find(productFilter));
+        }
+        return productTransformer.transformListToDtoList(productService.find(null));
     }
 
     @ApiOperation(

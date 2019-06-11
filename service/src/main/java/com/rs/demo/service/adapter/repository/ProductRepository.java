@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, String> {
 
-    List<Product> findAllByNameEqualsAndTypeEquals(final String name, final ProductType type);
+    List<Product> findAllByNameContainingIgnoreCaseAndTypeEquals(final String name, final ProductType type);
 
 }

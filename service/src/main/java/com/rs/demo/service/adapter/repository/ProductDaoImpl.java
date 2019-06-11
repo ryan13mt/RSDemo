@@ -25,7 +25,7 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public List<Product> find(final ProductFilter filter) {
-        return productRepository.findAllByNameEqualsAndTypeEquals(filter.getName(), filter.getType());
+        return productRepository.findAllByNameContainingIgnoreCaseAndTypeEquals(filter.getName() == null ? "" : filter.getName(), filter.getType());
     }
 
     @Override
